@@ -41,16 +41,18 @@ export default function HomeScreen() {
                   if (message.role == 'assistant') {
                     if (message.content.includes('https')) {
                       // If it's an AI image
-                      <View key={index} className="flex-row justify-start">
-                        <View className="p-2 flex rounded-2xl bg-emerald-100 rounded-tl-none">
-                          <Image
-                            source={{uri: message.content}}
-                            className="rounded-2xl"
-                            resizeMode="contain"
-                            style={{height: wp(60), width: wp(60)}}
-                          />
+                      return (
+                        <View key={index} className="flex-row justify-start">
+                          <View className="p-2 flex rounded-2xl bg-emerald-100 rounded-tl-none">
+                            <Image
+                              source={{uri: message.content}}
+                              className="rounded-2xl"
+                              resizeMode="contain"
+                              style={{height: wp(60), width: wp(60)}}
+                            />
+                          </View>
                         </View>
-                      </View>;
+                      );
                     } else {
                       // Text Response
                       return (
