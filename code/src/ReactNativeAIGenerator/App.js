@@ -1,10 +1,7 @@
 import {View, Text, SafeAreaView} from 'react-native';
 import React from 'react';
+import AppNavigation from './src/navigation';
 
 export default function App() {
-  return (
-    <SafeAreaView className="bg-red-200">
-      <Text>App</Text>
-    </SafeAreaView>
-  );
+  return <AppNavigation />;
 }
