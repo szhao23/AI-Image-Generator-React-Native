@@ -18,7 +18,8 @@ import Voice from '@react-native-community/voice';
 export default function HomeScreen() {
   const [messages, setMessages] = useState(dummyMessages);
   const [recording, setRecording] = useState(false);
-  const [speaking, setSpeaking] = useState(false);
+  const [speaking, setSpeech] = useState(true);
+  const [result, setResults] = useState('');
 
   // SpeechStart
   const speechStartHandler = e => {
@@ -32,6 +33,8 @@ export default function HomeScreen() {
   // SpeechResults
   const speechResultsHandler = e => {
     console.log('Voice Event: ', e);
+    const text = e.value[0];
+    setResults(text);
   };
   // SpeechError
   const speechErrorHandler = e => {
@@ -66,6 +69,7 @@ export default function HomeScreen() {
   const stopSpeech = () => {
     setSpeech(false);
   };
+
   // For Microphone usage
   useEffect(() => {
     // Voice Handler Events
@@ -79,6 +83,9 @@ export default function HomeScreen() {
       Voice.destroy().then(Voice.removeAllListeners);
     };
   }, []);
+
+  // Test if Results Work
+  console.log('Result: ', result);
 
   return (
     <View className="flex-1 bg-white">
