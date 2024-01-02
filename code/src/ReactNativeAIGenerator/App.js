@@ -1,10 +1,10 @@
-import {View, Text} from 'react-native';
+import {View, Text, SafeAreaView} from 'react-native';
 import React from 'react';
 
 export default function App() {
   return (
-    <View>
+    <SafeAreaView className="bg-red-200">
       <Text>App</Text>
-    </View>
+    </SafeAreaView>
   );
 }
